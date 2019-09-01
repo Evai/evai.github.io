@@ -200,6 +200,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -346,12 +366,18 @@
       
         
           
-            <p>Java 语言是一种<a href="https://baike.baidu.com/item/强类型语言" target="_blank" rel="noopener">强类型</a>语言。<strong>通俗点说就是，在 Java 中存储的数据都是有类型的，而且必须在编译时就确定其类型</strong>。Java 数据类型分为两类，如图所示：</p>
-<p><img src="https://images2015.cnblogs.com/blog/847828/201707/847828-20170716154418863-2079126814.png" alt="Java数据类型"></p>
-<p>在 Java 的领域里，基本数据类型变量存的是数据本身（也就是值），而引用类型变量存的是保存数据的空间地址。说白了，基本数据类型变量里存储的是直接放在抽屉里的东西，而引用数据类型变量里存储的是这个抽屉的钥匙，钥匙和抽屉一一对应。</p>
-<p><em>看到这里，可能会有人疑问：那么引用数据类型变量存储的“值”放在哪里了？详见 <a href="/2017/12/23/java-stack/">对Java堆栈的认识</a>。</em></p>
+          Java 语言是一种强类型语言。通俗点说就是，在 Java 中存储的数据都是有类型的，而且必须在编译时就确定其类型。Java 数据类型分为两类，如图所示：
 
-          
+在 Java 的领域里，基本数据类型变量存的是数据本身（也就是值），而引用类型变量存的是保存数据的空间地址。说白了，基本数据类型变量里存储的是直接放在抽屉里的东西，而引用数据类型变量里存储的是这个抽屉的钥匙，钥匙和抽屉一一对应。
+看到这里，可
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/25/java-data-type/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -502,13 +528,17 @@
       
         
           
-            <p>首先，如果你的系统没有安装 Openssl工具，先去前往下载并安装 Openssl 工具，下载地址：<a href="https://www.openssl.org/source/" target="_blank" rel="noopener">https://www.openssl.org/source/</a>。</p>
-<p>安装好后进入它的bin目录，执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成1024位的私钥</span></span><br><span class="line">openssl genrsa -out rsa_private_key.pem   1024</span><br><span class="line"><span class="comment"># 如果是Java开发者，需要执行该命令将私钥转换成PKCS8格式</span></span><br><span class="line">openssl pkcs8 -topk8 -inform PEM -<span class="keyword">in</span> rsa_private_key.pem -outform PEM -nocrypt -out rsa_private_key_pkcs8.pem</span><br><span class="line"><span class="comment"># 最后根据私钥生成对应的公钥</span></span><br><span class="line">openssl rsa -<span class="keyword">in</span> rsa_private_key.pem -pubout -out rsa_public_key.pem</span><br></pre></td></tr></table></figure>
-
-<p>上述命令执行完成后即可在当前目录看到。</p>
-
-          
+          首先，如果你的系统没有安装 Openssl工具，先去前往下载并安装 Openssl 工具，下载地址：https://www.openssl.org/source/。
+安装好后进入它的bin目录，执行：
+123456# 生成1024位的私钥openssl genrsa -out rsa_private_key.pem   1024# 如果是Java开发者，需要执行该命令将私钥转换成PKCS8格式op
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/25/use-openssl-rsa/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -637,29 +667,18 @@
       
         
           
-            <p><strong>大多数程序设计语言都提供了“作用域”（Scope）的概念。</strong></p>
-<p>在Java中，作用域决定了变量的“可见性”和“生存时间”。Java中的作用域是有花括号<code>{}</code>来决定的。</p>
-<p>先来看一段代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Scope</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">		&#123;<span class="comment">//作用域起点</span></span><br><span class="line">			<span class="keyword">int</span> a = <span class="number">2</span>;<span class="comment">//这里会报错，因为外部已经定义了一个a的变量</span></span><br><span class="line">		&#125;<span class="comment">//作用域终点</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面的例子中，由于<code>int a = 1</code>这行代码已经在最外部的作用域中声明<code>a</code>变量，所以在内部的作用域是不可以再重新声明<code>a</code>了，只能拿到<code>a</code>这个变量来进行使用，这是Java中强制规定的，而在C和C++中是允许的，因为Java的设计者认为这样会造成混淆。</p>
-<p>再来看一个例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Scope</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">1</span>;<span class="comment">//这样是允许的</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>看到有什么不同了吗？我们把<code>int a = 1</code>这行代码放到了内部作用域的下方了，此时是允许的。由于<code>int a = 2</code>是定义在作用域里面，当超过作用域时，这块的内存空间会自动从<a href="https://www.yuhechu.com/2017/12/23/java-stack/" target="_blank" rel="noopener">栈</a>中移除，并且同一块作用域的变量的“可见性”是只能在当前作用域及它的子作用域可见。由于<code>int a = 1</code>已经超出了该作用域，所以可以再次声明一个<code>a</code>变量。</p>
-<p>再来看一个例子来理解下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Scope</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String name = <span class="string">"a"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name);</span><br><span class="line">        name = <span class="string">"b"</span>;</span><br><span class="line">        &#123;</span><br><span class="line">            String name = <span class="string">"c"</span>;</span><br><span class="line">            System.out.println(name);</span><br><span class="line">            &#123;</span><br><span class="line">                name = <span class="string">"d"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(name);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(name);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; ; i++) &#123;</span><br><span class="line">            System.out.println(i);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">        System.out.println(i);</span><br><span class="line">        name = <span class="string">"e"</span>;</span><br><span class="line">        System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        func();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>执行结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">c</span><br><span class="line">d</span><br><span class="line">b</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">e</span><br></pre></td></tr></table></figure>
-
-<p><strong>Java对象不具备与基本类型数据一样的存在时间。用new关键字创建一个Java对象的时候，它会超出作用域的范围之外。</strong></p>
-<h5 id="对象的作用域"><a href="#对象的作用域" class="headerlink" title="对象的作用域"></a>对象的作用域</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Scope</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		String str = <span class="keyword">new</span> String();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面的 <code>str</code> 变量会在作用域外消失，但是 <code>new String()</code> 出来的对象是不存在<a href="https://www.yuhechu.com/2017/12/23/java-stack/" target="_blank" rel="noopener">栈</a>中的，它存在<a href="https://www.yuhechu.com/2017/12/23/java-stack/" target="_blank" rel="noopener">堆</a>中，并且不会随着作用域而消失。它随后会由Java垃圾回收器进行释放，垃圾回收器会查找用<code>new</code>所创建的所有对象，并判断其中哪些对象不再被变量引用，从而释放内存以便新的对象存储。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong>在同一作用域范围下的成员变量和局部变量是可以变量名相同的，在同一个作用域下和子作用域的局部变量则不允许变量名相同，在方法中使用变量的时候假如不指明使用成员变量还是局部变量，那么默认的就是使用成员变量，但是如果在方法中重新定义了一个和成员变量相同的局部变量，那么就会默认使用局部变量，并且在该作用域下的该变量都是使用局部变量，一旦超出该作用域，如果不指定，默认还是使用成员变量的。</strong></p>
-
-          
+          大多数程序设计语言都提供了“作用域”（Scope）的概念。
+在Java中，作用域决定了变量的“可见性”和“生存时间”。Java中的作用域是有花括号{}来决定的。
+先来看一段代码：
+12345678public class Scope&#123;	static &#123;		int a = 1;		&#123;//作用域起点			int a = 2;//这里会报错，因为外部已经定义了一个a的变量	
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/25/java-scope/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -810,47 +829,18 @@
       
         
           
-            <p>网上查了一些资料，有的说Java里面既有引用传递，也有值传递；也有的说Java只有值传递。其实两种说法都是对的，关键是看你怎么理解它们的含义。首先要先搞明白，什么是<strong>“值”</strong>，什么是<strong>“引用”</strong>？</p>
-<p><em>一般我们认为“值”就是基本的数据类型：整数，浮点，字符和布尔。“引用”则是指向堆内存中对象的一个地址。</em></p>
-<hr>
-<h3 id="首先把“值”和“引用”区分开来理解下"><a href="#首先把“值”和“引用”区分开来理解下" class="headerlink" title="首先把“值”和“引用”区分开来理解下"></a>首先把“值”和“引用”区分开来理解下</h3><p>Java中我们通常是这样定义一个变量的： <code>Type variable = ?</code></p>
-<p>“=” 号左边的比较好理解，<code>Type</code> 是一个兼容 “=” 号右边的一种类型，可以是基本类型，也可以是引用类型。<code>variable</code> 是我们定义的变量名。看下面的例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">User user = <span class="keyword">new</span> User();</span><br></pre></td></tr></table></figure>
+          网上查了一些资料，有的说Java里面既有引用传递，也有值传递；也有的说Java只有值传递。其实两种说法都是对的，关键是看你怎么理解它们的含义。首先要先搞明白，什么是“值”，什么是“引用”？
+一般我们认为“值”就是基本的数据类型：整数，浮点，字符和布尔。“引用”则是指向堆内存中对象的一个地址。
 
-<p>上面的<code>int a = 0;</code>，“=”号左边的<code>int a</code>会告诉编译器我们定义了一个<code>int</code>的基本数据类型和名为<code>a</code>的变量，这个变量存在栈中，并且编译器也知道了这是一个基本类型的变量，然后“=”号右边的<code>0</code>也是直接存储在栈中并赋值给变量<code>a</code>。这时候我们可以理解为<code>a</code>的值为<code>0</code>。</p>
-<p>再看<code>User user = new User();</code>，“=”号左边的<code>User user</code>告诉编译器定义我们定义了一个<code>User</code>的对象（引用数据类型）和名为<code>user</code>的变量，并且编译器知道了这是一个引用类型的变量，然后“=”号右边的<code>new User()</code>会在堆内存中开辟一块空间存储<code>User</code>这个对象，并生成一个唯一的地址值在存储在栈中，最后赋值给变量<code>user</code>。此时<code>user</code>是一个地址值，它指向堆中的User对象，<code>user</code>这个变量它就是堆中的<code>User</code>对象的引用值（不是像<code>0</code>这样的基本数据值直接存在栈中的）。我们把这种连接关系称为“引用”。</p>
-<p>讲到这里，大家应该就已经明白，所谓的“引用”和“值”是什么了。简单地说，“值”就是直接在栈中取出来就能访问并且直接修改，而“引用”虽然也是存储在栈中，但显然不能直接访问，需要通过<code>.</code>这种语法来访问并修改堆中的对象各个属性的值。</p>
-<p><em>先来看下基本类型的存取流程</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> b = a;</span><br><span class="line">a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-<p>结果：<code>a = 1, b = 0</code></p>
-<p>上面给变量<code>a</code>赋值为<code>0</code>后，又把<code>b</code>赋值为<code>a</code>，那么问题来了，<code>a</code>是什么？<strong><code>a</code>就是<code>0</code>，所以<code>b</code>就是<code>0</code>。注意：<code>b</code>不是<code>a</code>！这是赋值操作。是把<code>a</code>的值给了<code>b</code>。</strong>紧接着马上给<code>a</code>赋值为<code>1</code>，这里其实是把<code>a</code>原来为<code>0</code>的值更换成了<code>1</code>，而<code>b</code>是不会受到<code>a</code>的影响的，<code>b</code>的值仍然是<code>0</code>。</p>
-<p><em>再来看下引用类型的存取流程（可能比较难理解）</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">	 <span class="comment">//找到原来的`user`引用指向的对象，并修改name为"Bob"</span></span><br><span class="line">    user.setUsername(<span class="string">"Bob"</span>);</span><br><span class="line">    <span class="comment">//将变量`user`赋值为一个新的引用，因为new User()在堆中新开辟了一个空间存储User对象，这个对象的地址值赋值给`user`变量</span></span><br><span class="line">    user = <span class="keyword">new</span> User();</span><br><span class="line">    <span class="comment">//找到新的`user`引用指向的对象，并修改name为“Jack”</span></span><br><span class="line">    user.setUsername(<span class="string">"Jack"</span>);</span><br><span class="line">    System.out.println(user.getUsername());</span><br><span class="line">&#125;<span class="comment">//到这里结束，变量`user`消失</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	 <span class="comment">//在堆中创建一个User对象，将`user`赋值为User对象的引用。</span></span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    <span class="comment">//找到`user`引用指向的对象，并修改name为"Bob"</span></span><br><span class="line">    user.setUsername(<span class="string">"Mike"</span>);</span><br><span class="line">    System.out.println(user.getUsername());</span><br><span class="line">    <span class="comment">//将`user`引用拷贝一份到change方法里面作为该方法的实参</span></span><br><span class="line">    change(user);</span><br><span class="line">    System.out.println(user.getUsername());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面输出的结果分别为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Mike </span><br><span class="line">Jack </span><br><span class="line">Bob</span><br></pre></td></tr></table></figure>
-
-<p>如果能理解上面的注释，说明你已经理解了Java中的值和引用了。</p>
-<p>这里再补充一下其它的知识点，change方法里面重新创建的User对象跑去哪里了？在执行完最后一行代码后<code>System.out.println(user.getUsername());</code>，离开了这个方法块（也叫做 <a href="https://www.yuhechu.com/2017/12/25/java-scope/" target="_blank" rel="noopener">作用域</a>），变量<code>user</code>就出栈了，它已经不存在了，而在方法中 <code>new User()</code>出来的这个新的对象还存在堆中，因为这个新的对象已经没有变量指向它了， 所以它会被当成垃圾，会在随后的一段时间里经过垃圾回收器的算法来自动释放掉。<br>再来看下change方法中第一行代码<code>user.setUsername(&quot;Bob&quot;);</code>，这里根据传进来的“引用”修改了原来堆中的对象中的属性值，由于方法外部的<code>user</code>和方法内部的’user’指向堆中的同一个对象，所以会看到最后的<code>userName</code>的值为”Bob”，就是所谓的“引用传递”了。</p>
-<h3 id="最后我们把“值”和“引用”一起理解为“值”"><a href="#最后我们把“值”和“引用”一起理解为“值”" class="headerlink" title="最后我们把“值”和“引用”一起理解为“值”"></a>最后我们把“值”和“引用”一起理解为“值”</h3><p>再来看下有什么不同</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;<span class="comment">//a赋值为0</span></span><br><span class="line"><span class="keyword">int</span> b = <span class="number">0</span>;<span class="comment">//b赋值为0</span></span><br><span class="line">a = <span class="number">1</span>;<span class="comment">//a赋值为1</span></span><br><span class="line">b = a;<span class="comment">//b赋值为1</span></span><br></pre></td></tr></table></figure>
-
-<p>上面的代码很好理解，就是变量的值一直在改变，一直在进行赋值操作。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    a = <span class="number">1</span>;<span class="comment">//a赋值为1，这里的a跟外边的a不是同一个a</span></span><br><span class="line">    arr[<span class="number">1</span>] = <span class="number">10</span>;<span class="comment">//根据传入的地址值在堆中找到数组，并修改第2个元素值</span></span><br><span class="line">&#125;<span class="comment">//到这里结束，变量a，arr消失，但堆中的arr数组还存在</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>;<span class="comment">//a赋值为0</span></span><br><span class="line">    <span class="comment">//在堆中创建一个数组，相当于new int[]&#123;1,2&#125;</span></span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line">    System.out.println(<span class="string">"a="</span> + a + <span class="string">", arr="</span> + Arrays.toString(arr));</span><br><span class="line">    <span class="comment">//拷贝一份a和arr的值，传到change方法里。a的值为0，arr的值假设为"&#123;int[2]@479&#125;"</span></span><br><span class="line">    change(a, arr);</span><br><span class="line">    System.out.println(<span class="string">"a="</span> + a + <span class="string">", arr="</span> + Arrays.toString(arr));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>打印结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=0, arr=[1, 2]</span><br><span class="line">a=0, arr=[1, 10]</span><br></pre></td></tr></table></figure>
-
-<p><em>为什么a的值没有改变？</em></p>
-<p>我是这么理解的，<strong>栈中的数据不是共享的，每块代码块之间的变量和值不会相互影响，并且超过<a href="https://www.yuhechu.com/2017/12/25/java-scope/" target="_blank" rel="noopener">作用域</a>后就会消失。<a href="https://www.yuhechu.com/2017/12/23/java-stack/" target="_blank" rel="noopener">堆</a>中的数据是共享的。</strong>，我们在外面传入了一个arr的“地址值”，里面的代码<code>arr[1] = 10;</code>是根据<code>arr</code>的“地址值”访问并操作了数组里面的元素值，<code>arr</code>这个变量并没有重新赋值，外面在访问这个“地址值”就会看到它的元素值已经被修改。假如里面的代码是<code>arr = {5,6}</code>，此时<code>arr</code>变量被重新赋值为一个新的数组了，那么相当就会在堆中创建一个新的数组，然后将<code>arr</code>指向这个新的“地址值”，而并没有访问原来“地址值”所对应的数组。</p>
-<p>所以，上边也提到了，<strong>访问对象是需要通过<code>.</code>来进行访问和修改的，如<code>user.name</code>，数组元素是通过下标来访问的，如<code>arr[0]</code>。而“=”号是赋值操作，会重新生成一个“值”。这个值要么就是基本数据的值，要么就是用来访问对象或数组的内存值（它们都是存在<a href="https://www.yuhechu.com/2017/12/23/java-stack/" target="_blank" rel="noopener">栈</a>中），所以我们可以统一理解为“值”。</strong></p>
-<p>说了那么多，就看各位怎么理解了，“引用”也是值，但我们习惯叫它“引用”，就是因为它是一个特殊的“值”。</p>
-<blockquote>
-<p>Java中还有一类特殊的引用类型，就是基本类型的包装类，如Integer,Boolean,Character,Float,Long等等，它们虽然也是引用类型，但是却不能直接访问并修改它们的值，只能通过特殊手段来修改，但这样是不规范的。可以看到它们的源码的类和字段都定义了<code>final</code>关键字。有兴趣的小伙伴可以自己动手试试。</p>
-</blockquote>
-
-          
+首先把“值”和“引用”区分开来理解下Java中我们通常是这样定义一个变量的： Type variable
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/24/java-value-transmit/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1001,40 +991,19 @@
       
         
           
-            <h3 id="当程序运行时，主要有以下几个地方可以存取数据（摘自Java编程思想）。"><a href="#当程序运行时，主要有以下几个地方可以存取数据（摘自Java编程思想）。" class="headerlink" title="当程序运行时，主要有以下几个地方可以存取数据（摘自Java编程思想）。"></a>当程序运行时，主要有以下几个地方可以存取数据（摘自Java编程思想）。</h3><h4 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h4><blockquote>
-<p>这是最快的存储区域，因为它位于和其他所有保存方式不同的地方:处理器内部。但是寄存器的数量十分有限，所以寄存器是根据需要由编译器分配。我们对此没有直接的控制权，也不可能在自己的程序里找到寄存器存在的任何踪迹。</p>
-</blockquote>
-<h4 id="栈（先进后出）"><a href="#栈（先进后出）" class="headerlink" title="栈（先进后出）"></a>栈（先进后出）</h4><blockquote>
-<p>驻留于常规RAM(随机访问存储器)区域，可通过它的“栈指针”获得处理的直接支持。栈指针若向下移，会创建新的内存;若向上移，则会释放那些内存。这是一种特别快、特别有效的数据保存方式，仅次于寄存器。但缺点是创建程序时，Java 编译器必须准确地知道栈内保存的所有数据的“长度”以及“存在时间”，缺乏灵活性。这是由于它必须生成相应的代码，以便向上和向下移动指针。</p>
-</blockquote>
-<h4 id="堆（队列优先，先进先出）"><a href="#堆（队列优先，先进先出）" class="headerlink" title="堆（队列优先，先进先出）"></a>堆（队列优先，先进先出）</h4><blockquote>
-<p>一种常规用途的内存池(也在RAM区域)，其中保存了Java对象。堆的优势是可以动态地分配内存大小，生存期也不必事先告诉编译器，Java的垃圾收集器会自动收走那些不再使用的堆中的数据。创建一个对象时，只需用<code>new</code>命令编写相关的代码即可。因此，用堆保存数据时会得到更大的灵活性。这种灵活性付出的代价是：在堆中分配存储空间会比较慢。 </p>
-</blockquote>
-<h4 id="静态存储"><a href="#静态存储" class="headerlink" title="静态存储"></a>静态存储</h4><blockquote>
-<p>这儿的“静态”(Static)是指“位于固定位置”(尽管也在RAM里)。程序运行期间,静 态存储的数据将随时等候调用。可用<code>static</code>关键字指出一个对象的特定元素是静态的。但 Java 对象本身永远都不会置入静态存储空间。</p>
-</blockquote>
-<h4 id="常量存储"><a href="#常量存储" class="headerlink" title="常量存储"></a>常量存储</h4><blockquote>
-<p>常量值通常直接置于程序代码内部。这样做是安全的，因为它们永远都不会改变。有时，在嵌入式系统中，常量本身会和其他部分分隔离开，所以在这种情况下，可以选择将其放在ROM(只读存储器)中。</p>
-</blockquote>
-<h4 id="非RAM存储"><a href="#非RAM存储" class="headerlink" title="非RAM存储"></a>非RAM存储</h4><blockquote>
-<p>若数据完全独立于一个程序之外，则程序不运行时仍可存在，并在程序的控制范围之外。 其中两个最主要的例子便是“流式对象”和“持久化对象”。对于流式对象，对象会变成字节流，通常会发给 另一台机器。而对于持久化对象，对象保存在磁盘中。即使程序中止运行，它们仍可保持自己的状态不变。对于这些类型的数据存储，一个特别有用的技巧就是它们能存在于其他媒体中。一旦需要，可以将它们恢复成普通的、基于RAM的对象。</p>
-</blockquote>
-<h3 id="在Java中什么时候数据会存在栈里？"><a href="#在Java中什么时候数据会存在栈里？" class="headerlink" title="在Java中什么时候数据会存在栈里？"></a>在Java中什么时候数据会存在栈里？</h3><p><strong>栈：</strong>当在一段代码块中定义一个变量时，java就在栈中为这个变量分配内存空间，当超过变量的<a href="https://www.yuhechu.com/2017/12/25/java-scope/" target="_blank" rel="noopener">作用域</a>后，Java会自动释放掉为该变量分配的内存空间。</p>
-<p><em>比如下面这段代码：</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">char</span> c = <span class="string">'c'</span>;</span><br><span class="line"><span class="keyword">boolean</span> b;</span><br></pre></td></tr></table></figure>
+          当程序运行时，主要有以下几个地方可以存取数据（摘自Java编程思想）。寄存器
+这是最快的存储区域，因为它位于和其他所有保存方式不同的地方:处理器内部。但是寄存器的数量十分有限，所以寄存器是根据需要由编译器分配。我们对此没有直接的控制权，也不可能在自己的程序里找到寄存器存在的任何踪迹。
 
-<p>Java中只要定义了一个“变量”，这个“变量”就会被分配在栈中。比如上面的 i、c、b。像int，char，boolean这种基本类型，“=”号右边的值也是存在栈中的，然后这个<strong>“变量”就赋值为右边的“值”</strong>了。这种简单的“值”如果去 <code>new</code> 一个出来，往往不是很高效的做法。所以在Java中，也和C，C++一样，创建一个并非是引用的“自动”变量，这些变量直接存储“值”，并放在栈中，所以更加高效。<strong>这些“变量”定义在<a href="https://www.yuhechu.com/2017/12/25/java-scope/" target="_blank" rel="noopener">作用域</a>里面，超出<a href="https://www.yuhechu.com/2017/12/25/java-scope/" target="_blank" rel="noopener">作用域</a>后，“变量”就消失了（即出栈）</strong>。</p>
-<p><img src="http://www.yuhechu.com:8090/images/blog/QQ20171224-163412@2x.png" alt></p>
-<p>上图可以看到<a href>基本类型</a>中的变量就变成了一个明确的”值“。</p>
-<h3 id="存放在堆里的数据"><a href="#存放在堆里的数据" class="headerlink" title="存放在堆里的数据"></a>存放在堆里的数据</h3><p><strong>堆：</strong>用于存放数组和由 <code>new</code> 创建的对象。在堆中分配的内存，由Java垃圾回收器来自动回收管理。在堆中生成了一个对象后，还会在栈中生成一个指向堆中的对象的一个“地址值”，此时“变量”就等于堆中生成对象的“地址值”，此后可以根据栈中的这个“地址值”找到在堆中的对象并修改对象的属性值。</p>
-<p><em>比如下面这段代码：</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] intArr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">String[] strArr = <span class="keyword">new</span> String[]&#123;<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>&#125;;</span><br><span class="line">User user = <span class="keyword">new</span> User();</span><br><span class="line">Map map = <span class="keyword">new</span> HashMap();</span><br></pre></td></tr></table></figure>
-
-<p>上面讲到了变量是在栈内存中分配的，然后在程序运行到<a href="https://www.yuhechu.com/2017/12/25/java-scope/" target="_blank" rel="noopener">作用域</a>外释放。<strong>而数组和对象本身在堆内存中分配，即使程序运行到<a href="https://www.yuhechu.com/2017/12/25/java-scope/" target="_blank" rel="noopener">作用域</a>外，数组和对象本身占用的堆内存也不会被马上释放</strong>，但此时已经没有变量指向它们了，就变成了垃圾，不能再被使用，随后被垃圾回收器释放掉。</p>
-<p><img src="http://www.yuhechu.com:8090/images/blog/QQ20171224-163131@2x.png" alt></p>
-<p>上图可以看到<a href>引用类型</a>的变量就变成了指向堆内存中的一个”地址值“，本质上讲也是一个”值“。</p>
-
-          
+栈（先进后出）
+驻留于常规RAM(随机访问存储器)区域，可通过它的“栈指针”获得处理的直接支持。栈指针若向下移，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/23/java-stack/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1185,59 +1154,16 @@
       
         
           
-            <p>最近开始补点基础知识，买了本Effective Java，希望能慢慢啃完这本书。下面是书中的一些知识及我个人的一些看法。</p>
-<p>对于类而言，为了让客户端获取它自身的一个实例，最常用的方法就是提供一个自身公有的构造器，<strong>还有一种方法，类可以提供一个公有的静态工厂方法，它只是一个返回类的实例的静态方法。</strong>下面是一个Boolean（基本类型boolean的包装类）的简单示例，这个方法将boolean基本类型值转换成了一个Boolean的对象引用:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">valueOf</span><span class="params">(<span class="keyword">boolean</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b ? Boolean.TRUE : Boolean.FALSE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>看它的源码，发现里面定义了一个不可变的常量，也是实例化了一个对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   * The &#123;<span class="doctag">@code</span> Boolean&#125; object corresponding to the primitive</span></span><br><span class="line"><span class="comment">   * value &#123;<span class="doctag">@code</span> true&#125;.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Boolean TRUE = <span class="keyword">new</span> Boolean(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * The &#123;<span class="doctag">@code</span> Boolean&#125; object corresponding to the primitive</span></span><br><span class="line"><span class="comment">   * value &#123;<span class="doctag">@code</span> false&#125;.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Boolean FALSE = <span class="keyword">new</span> Boolean(<span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="那么通过静态工厂方法相比于通过构造器有什么好处呢？"><a href="#那么通过静态工厂方法相比于通过构造器有什么好处呢？" class="headerlink" title="那么通过静态工厂方法相比于通过构造器有什么好处呢？"></a>那么通过静态工厂方法相比于通过构造器有什么好处呢？</h3><h5 id="一、静态工厂方法与构造器不同的第一大优势在于，他们有名称。"><a href="#一、静态工厂方法与构造器不同的第一大优势在于，他们有名称。" class="headerlink" title="一、静态工厂方法与构造器不同的第一大优势在于，他们有名称。"></a>一、静态工厂方法与构造器不同的第一大优势在于，他们有名称。</h5><blockquote>
-<p>如果构造器的参数本身没有确切地描述被返回的对象，那么具有适当名称的静态工厂方法会更易于阅读。例如构造器 new BigInteger(3, 10, new Random()) 返回的可能为质数（又称素数，质数定义为在大于1的自然数中，除了1和它本身以外不再有其他因数）。如果用名为 BigInteger.probablePrime(3, new Random()) 的静态方法来表示显然更清楚。</p>
-</blockquote>
-<blockquote>
-<p>一个类只能有一个带有指定签名的构造器。我们通常知道如何避免开这一个限制：可以在构造器的参数类型，参数长度，或者是交换位置来重载。但这不是一个好主意，用户永远也记不住该用哪个构造器，如果没有对应的参考文档，往往会调用错误的构造器。</p>
-</blockquote>
-<blockquote>
-<p>由于静态工厂方法有名称，更加灵活。当一个类需要多个带有相同签名的构造器时，就可以用它来代替构造器。</p>
-</blockquote>
-<h5 id="二、静态工厂方法不必每次调用它们的时候都创建一个新对象。"><a href="#二、静态工厂方法不必每次调用它们的时候都创建一个新对象。" class="headerlink" title="二、静态工厂方法不必每次调用它们的时候都创建一个新对象。"></a>二、静态工厂方法不必每次调用它们的时候都创建一个新对象。</h5><blockquote>
-<p>这使得不可变类可以使用预先构建好的实例，或者将构建好的实例缓存起来，进行重复利用，从而避免创建不必要的重复对象。比如上面提到的 Boolean valueOf(boolean b) 这个方法，它从来不会重新创建一个对象。这种方法类似于Flyweight模式（享元模式）。如果程序经常请求创建相同的对象，并且创建对象的代价很高，则这项技术可以极大地提升性能。</p>
-</blockquote>
-<h5 id="三、静态工厂方法可以返回原返回类型的任何子类型的对象。"><a href="#三、静态工厂方法可以返回原返回类型的任何子类型的对象。" class="headerlink" title="三、静态工厂方法可以返回原返回类型的任何子类型的对象。"></a>三、静态工厂方法可以返回原返回类型的任何子类型的对象。</h5><blockquote>
-<p> 这样我们在选择返回对象的类时就有了更大的灵活性。这种灵活性的应用是，API可以返回对象，同时又不会使对象的类变成公有的。以这种方法隐藏实现类会使API变得非常简洁。这项技术适用于基于接口的框架，因为在这种框架中，接口为静态工厂方法提供了自然返回类型。接口不能有静态方法，因此接口Type的静态工厂方法被放在一个名为Types的不可实例化的类中。</p>
-</blockquote>
-<p><em>下面举个例子说明下</em></p>
-<p>首先声明一个接口：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Ball</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">intro</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>接着创建 BasketBall 类和 FootBall 类。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BasketBall</span> <span class="keyword">implements</span> <span class="title">Ball</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">intro</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Play basketball"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FootBall</span> <span class="keyword">implements</span> <span class="title">Ball</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">intro</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Play football"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>再创建一个工厂类，利用反射机制实现。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BallFactory</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 第一种方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> type</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Ball <span class="title">getBean</span><span class="params">(String type)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//声明一个引用，入栈</span></span><br><span class="line">        Ball ball = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//找到目标类并重新开辟一个空间存入堆中，并向上转型</span></span><br><span class="line">            ball = (Ball) Class.forName(<span class="string">"com.learn.other.ball."</span> + type).newInstance();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InstantiationException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ball;<span class="comment">//返回内存地址</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 第二种方法，这种方法能保证类在编译期间就能发现到底存不存在</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> clazz</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Ball <span class="title">getBean</span><span class="params">(Class&lt;?&gt; clazz)</span> </span>&#123;</span><br><span class="line">        Ball ball = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ball = (Ball) clazz.newInstance();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InstantiationException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ball;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//将内存地址赋值给ball</span></span><br><span class="line">        Ball ball1 = getBean(<span class="string">"BasketBall"</span>);</span><br><span class="line">        Ball ball2 = getBean(<span class="string">"FootBall"</span>);</span><br><span class="line">        Ball ball3 = getBean(BasketBall.class);</span><br><span class="line">        Ball ball4 = getBean(FootBall.class);</span><br><span class="line">        ball1.intro();</span><br><span class="line">        ball2.intro();</span><br><span class="line">        ball3.intro();</span><br><span class="line">        ball4.intro();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Play basketball</span><br><span class="line">Play football</span><br><span class="line">Play basketball</span><br><span class="line">Play football</span><br></pre></td></tr></table></figure>
-
-<p>BallFactory就利用了基类，返回了该类型的子类型。上述的类实体其实对客户端是不可见的。</p>
-<h3 id="静态工厂方法的缺点"><a href="#静态工厂方法的缺点" class="headerlink" title="静态工厂方法的缺点"></a>静态工厂方法的缺点</h3><h5 id="一、类如果不含有共有的或者受保护的构造器，就不能被子类化。"><a href="#一、类如果不含有共有的或者受保护的构造器，就不能被子类化。" class="headerlink" title="一、类如果不含有共有的或者受保护的构造器，就不能被子类化。"></a>一、类如果不含有共有的或者受保护的构造器，就不能被子类化。</h5><blockquote>
-<p>对于公有的静态工厂所返回的非公有类，也同样如此。例如，要想将 Collections Framework 中的任何方便的实现类子类化，这是不可能的。但是同样也许会因祸得福，因为它鼓励我们使用复合（组合），而不是继承。</p>
-</blockquote>
-<p>例如下面的父类，它只能通过静态工厂方法来完成实例化对象，因为它有一个私有的构造方法，<strong>不允许被外部实例化，同时该类也不能被继承。</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Parent parent;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Parent</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Parent <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (parent == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Parent.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (parent == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    parent = <span class="keyword">new</span> Parent();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> parent;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"I'm Parent"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当我们试图去继承该类的时候，编译器就会提示报错：</p>
-<p><img src="http://www.yuhechu.com:8090/images/blog/QQ20171222-154217@2x.png" alt></p>
-<p>但是我们可以通过复合（组合）的方式来完成实例化：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Parent parent;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        parent = Parent.getInstance();</span><br><span class="line">        System.out.println(parent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="二、它们与其他的静态方法实际上没有任何区别。"><a href="#二、它们与其他的静态方法实际上没有任何区别。" class="headerlink" title="二、它们与其他的静态方法实际上没有任何区别。"></a>二、它们与其他的静态方法实际上没有任何区别。</h5><blockquote>
-<p>它们没有像构造器那样在API文档中明确标识出来，因此对于提供了静态工厂方法而不是构造器的类来说，要想查明如何实例化一个类，这是非常困难的。你通过在类或者接口注释中关注静态工厂，并遵守标准的命名习惯，可以弥补这一劣势。</p>
-</blockquote>
-<p><strong>总之，我挺认同的书中的说法，平时项目中也比较喜欢用静态方法，不需要重新实例化对象，一是没必要浪费资源，二是看起来更简洁有力（其实就是懒）。至于书中所说的缺点，我感觉跟优点比起来就是小巫见大巫了。如果有静态工厂方法实际经验的，认为其有不合理之处，十分欢迎您提出宝贵的意见。</strong></p>
-
-          
+          最近开始补点基础知识，买了本Effective Java，希望能慢慢啃完这本书。下面是书中的一些知识及我个人的一些看法。
+对于类而言，为了让客户端获取它自身的一个实例，最常用的方法就是提供一个自身公有的构造器，还有一种方法，类可以提供一个公有的静态工厂方法，它只是一个返回类的实例的静态方法。下面是一个Boolean（基本类型boolean的包装类）的简单示例，这个方法将boolean基本类型值转换
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/22/static-replace-constructor/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1388,39 +1314,26 @@
       
         
           
-            <h3 id="Cron参数"><a href="#Cron参数" class="headerlink" title="Cron参数"></a>Cron参数</h3><p>cron 格式: <code>* * * * * [your command]</code></p>
-<p>第1列分钟 1～59</p>
-<p>第2列小时 0～23</p>
-<p>第3列日 1～31</p>
-<p>第4列月 1～12</p>
-<p>第5列星期 0～6（0表示星期天）</p>
-<p>第6列表示要运行的命令</p>
-<h3 id="几个简单的格式"><a href="#几个简单的格式" class="headerlink" title="几个简单的格式"></a>几个简单的格式</h3><p>每五分钟执行  <code>*/5 * * * *</code></p>
-<p>每小时执行    <code>0 * * * *</code></p>
-<p>每天执行      <code>0 0 * * *</code></p>
-<p>每周执行      <code>0 0 * * 0</code></p>
-<p>每月执行      <code>0 0 1 * *</code></p>
-<p>每年执行      <code>0 0 1 1 *</code></p>
-<h3 id="举几个常用的例子"><a href="#举几个常用的例子" class="headerlink" title="举几个常用的例子"></a>举几个常用的例子</h3><p><code>30 8 * * * /usr/local/mysql/bin/mysqld restart</code></p>
-<p>表示每天早上8点30分重启mysql。</p>
-<p><code>15 4 1,11,21 * * /usr/local/mysql/bin/mysqld restart</code></p>
-<p>表示每月1、11、21号早上4点15分重启mysql。</p>
-<p><code>10 0 * * 0,3 [your command]</code></p>
-<p>表示每周日、周三的 00:10执行一次。</p>
-<p><code>0,30 18-21 * * * [your command]</code></p>
-<p>表示在每天 18:00 至 21:00 之间每隔30分钟执行一次。</p>
-<p><code>55 23 * * 5 [your command]</code></p>
-<p>表示每星期五的 23:55 执行一次。</p>
-<p><code>10 * * * * [your command]</code></p>
-<p>每个整点的10分执行一次。</p>
-<p><code>0 23-7/1 * * * [your command]</code></p>
-<p>晚上11点到早上7点之间，每隔一小时执行一次。</p>
-<p><code>*/1 * * * * [your command]</code></p>
-<p>每分钟执行一次。</p>
-<p><code>0 0 1 1 * [your command]</code></p>
-<p>一月一号的0点执行一次。</p>
-
-          
+          Cron参数cron 格式: * * * * * [your command]
+第1列分钟 1～59
+第2列小时 0～23
+第3列日 1～31
+第4列月 1～12
+第5列星期 0～6（0表示星期天）
+第6列表示要运行的命令
+几个简单的格式每五分钟执行  */5 * * * *
+每小时执行    0 * * * *
+每天执行      0 0 * * *
+每周执行      0 0 * * 0
+每月
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/21/linux-cron/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1571,24 +1484,19 @@
       
         
           
-            <h3 id="压缩命令"><a href="#压缩命令" class="headerlink" title="压缩命令"></a>压缩命令</h3><p><strong>tar.gz 格式：</strong> <code>tar -zcvf 自定义压缩文件名.tar.gz  被压缩文件名</code></p>
-<p><strong>zip 格式：</strong> <code>zip -r 自定义压缩文件名.zip 被压缩文件名</code> </p>
-<p><em>如果要压缩整个文件夹，也可先进入到需要压缩文件夹的目录下，然后运行</em></p>
-<p><code>tar -zcvf 自定义压缩文件名.tar.gz *</code><br><code>zip -r 自定义压缩文件名.zip *</code></p>
-<h3 id="解压命令"><a href="#解压命令" class="headerlink" title="解压命令"></a>解压命令</h3><p><strong>tar.gz 格式</strong>：<code>tar -zxvf  压缩文件名.tar.gz</code></p>
-<p><strong>zip 格式</strong>： <code>unzip 压缩文件名.zip</code></p>
-<p><em>解压缩后的文件只能放在当前的目录。</em></p>
-<h3 id="压缩文件排除某个文件或文件夹方法"><a href="#压缩文件排除某个文件或文件夹方法" class="headerlink" title="压缩文件排除某个文件或文件夹方法"></a>压缩文件排除某个文件或文件夹方法</h3><p>很多时候我们需要对某一个目录打包，而这个目录下有几十个子目录和子文件，我们需要在打包的时候排除其中一个或两个目录或几个文件。</p>
-<p>这时候我们在用tar命令打包的时候，增加参数 –exclude 就能达到目的。</p>
-<p>我们以myweb 为例，打包的时候我们要排除 myweb/logs 目录，命令如下</p>
-<p><code>tar -zcvf myweb.tar.gz --exclude=myweb/logs myweb</code></p>
-<p>如果要排除多个目录，增加 –exclude 即可，比如我们要排除logs和libs两个目录及文件readme.txt，命令如下</p>
-<p><code>tar -zcvf myweb.tar.gz --exclude=myweb/logs --exclude=myweb/libs --exclude=myweb/readme.txt myweb</code></p>
-<p><strong>这里大家要注意，在我们使用tar 的–exclude 命令排除打包的时候，不能加“/”，否则还是会把logs目录以及其下的文件打包进去，例如</strong></p>
-<p><code>tar -zcvf myweb.tar.gz --exclude=myweb/logs/ --exclude=myweb/libs/ myweb</code> （这是错误的写法）</p>
-<p><code>tar -zcvf myweb.tar.gz --exclude=myweb/logs --exclude=myweb/libs myweb</code> （这是正确的写法）</p>
-
-          
+          压缩命令tar.gz 格式： tar -zcvf 自定义压缩文件名.tar.gz  被压缩文件名
+zip 格式： zip -r 自定义压缩文件名.zip 被压缩文件名 
+如果要压缩整个文件夹，也可先进入到需要压缩文件夹的目录下，然后运行
+tar -zcvf 自定义压缩文件名.tar.gz *zip -r 自定义压缩文件名.zip *
+解压命令tar.gz 格式：tar -zxvf  压缩文件名.t
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/20/linux-compress-command/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1739,25 +1647,16 @@
       
         
           
-            <h3 id="Java-中判断两个对象是否相等"><a href="#Java-中判断两个对象是否相等" class="headerlink" title="Java 中判断两个对象是否相等"></a>Java 中判断两个对象是否相等</h3><p>由于每次实例化一个对象时，系统会分配一块内存地址给这个对象，而系统默认是根据内存地址来检测是否是同一个对象，所以就算是同一个类里实例化出来的对象它们也不会相等。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Transport</span> </span>&#123;</span><br><span class="line">    <span class="comment">//名字</span></span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="comment">//运输类型</span></span><br><span class="line">    <span class="keyword">public</span> String type;</span><br><span class="line"></span><br><span class="line">   &#123;</span><br><span class="line">        name = <span class="string">"交通工具"</span>;</span><br><span class="line">        type = <span class="string">"运输方式"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"交通工具可以载人载物"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>实例化对象后查看下内存地址，并用<code>equals</code>方法判断是否相等</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Transport obj = <span class="keyword">new</span> Transport();</span><br><span class="line">        Transport obj1 = <span class="keyword">new</span> Transport();</span><br><span class="line">        System.out.println(obj.toString()); <span class="comment">//Transport@49476842</span></span><br><span class="line">        System.out.println(obj1.toString()); <span class="comment">//Transport@78308db1</span></span><br><span class="line">        System.out.println(obj.equals(obj1)); <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果是不相等的，那么这两个对象明明是同一个对象，我们该怎么判断它们到底是不是同一个对象呢？ 方法也很简单，我们自己重写一个类方法来判断</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;  <span class="comment">//先判断o是否为本对象，如果是就肯定是同一对象了，this 指向当前的对象</span></span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">//再判断o是否为null，和o.类对象和本类对象是否一致</span></span><br><span class="line">        Transport transport = (Transport) o;  <span class="comment">//再把o对象强制转化为Transport类对象</span></span><br><span class="line">        <span class="keyword">return</span> Objects.equals(name, transport.name) &amp;&amp; Objects.equals(type, transport.type);  <span class="comment">//查看两个对象的name和type属性值是否相等,返回结果</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>再来运行一遍程序,得到结果</p>
-<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
-        Transport obj = <span class="keyword">new</span> Transport();
-        Transport obj1 = <span class="keyword">new</span> Transport();
-        System.out.println(obj.toString()); <span class="comment">//Transport@49476842</span>
-        System.out.println(obj1.toString()); <span class="comment">//Transport@78308db1</span>
-        System.out.println(obj.equals(obj1)); <span class="comment">// true</span>
-}</code></pre>
-
-          
+          Java 中判断两个对象是否相等由于每次实例化一个对象时，系统会分配一块内存地址给这个对象，而系统默认是根据内存地址来检测是否是同一个对象，所以就算是同一个类里实例化出来的对象它们也不会相等。
+12345678910111213141516public class Transport &#123;    //名字    public String name;    //运输类型    public
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/20/equals-java-object/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1908,18 +1807,18 @@
       
         
           
-            <h3 id="Spring事务的隔离级别"><a href="#Spring事务的隔离级别" class="headerlink" title="Spring事务的隔离级别"></a>Spring事务的隔离级别</h3><ol>
-<li>ISOLATION_DEFAULT： 这是一个PlatfromTransactionManager默认的隔离级别，使用数据库默认的事务隔离级别。另外四个与JDBC的隔离级别相对应</li>
-<li>ISOLATION_READ_UNCOMMITTED： 这是事务最低的隔离级别，它充许令外一个事务可以看到这个事务未提交的数据。这种隔离级别会产生脏读，不可重复读和幻像读。</li>
-<li>ISOLATION_READ_COMMITTED： 保证一个事务修改的数据提交后才能被另外一个事务读取。另外一个事务不能读取该事务未提交的数据</li>
-<li>ISOLATION_REPEATABLE_READ： 这种事务隔离级别可以防止脏读，不可重复读。但是可能出现幻像读。它除了保证一个事务不能读取另一个事务未提交的数据外，还保证了避免下面的情况产生(不可重复读)。</li>
-<li>ISOLATION_SERIALIZABLE 这是花费最高代价但是最可靠的事务隔离级别。事务被处理为顺序执行。除了防止脏读，不可重复读外，还避免了幻像读。</li>
-</ol>
-<h3 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h3><p>指当一个事务正在访问数据，并且对数据进行了修改，而这种修改还没有提交到数据库中，这时，另外一个事务也访问这个数据，然后使用了这个数据。因为这个数据是还没有提交的数据， 那么另外一个事务读到的这个数据是脏数据，依据脏数据所做的操作可能是不正确的。</p>
-<h3 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h3><p>不可重复读: 指在一个事务内，多次读同一数据。在这个事务还没有结束时，另外一个事务也访问该同一数据。那么，在第一个事务中的两次读数据之间，由于第二个事务的修改，那么第一个事务两次读到的数据可能是不一样的。这样就发生了在一个事务内两次读到的数据是不一样的，因此称为是不可重复读。</p>
-<h3 id="幻觉读"><a href="#幻觉读" class="headerlink" title="幻觉读"></a>幻觉读</h3><p>幻觉读: 指当事务不是独立执行时发生的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样。</p>
-
-          
+          Spring事务的隔离级别
+ISOLATION_DEFAULT： 这是一个PlatfromTransactionManager默认的隔离级别，使用数据库默认的事务隔离级别。另外四个与JDBC的隔离级别相对应
+ISOLATION_READ_UNCOMMITTED： 这是事务最低的隔离级别，它充许令外一个事务可以看到这个事务未提交的数据。这种隔离级别会产生脏读，不可重复读和幻像读。
+ISOLATION
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/20/spring-transaction/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

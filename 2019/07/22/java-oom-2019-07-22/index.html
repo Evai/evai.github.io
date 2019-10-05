@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="OOM,">
 
 
 
@@ -79,16 +79,24 @@
 
 
 
-<meta name="description" content="Evai Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Evai Blog">
-<meta property="og:url" content="https://evai.github.io/tags/redis/index.html">
+<meta name="description" content="前言前几天在公司服务器查看日志的时候无意间发现项目配置的OOM Dump路径上生成了一个文件，发现就是最近生成的文件。好奇之下笔者将该文件拉到本地准备开始定位问题。 问题定位话不多说，直接利用MAT工具对该文件进行分析。  通过上图可以发现是sql返回的一个结果集占用了大量的内存，接近1.5G！但是这里还看不出来到底是哪块业务代码造成返回这么大的数据集。再看MAT的一个系统报告，它可以帮你预测出这">
+<meta name="keywords" content="OOM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次生产环境OOM排查实践">
+<meta property="og:url" content="https://evai.github.io/2019/07/22/java-oom-2019-07-22/index.html">
 <meta property="og:site_name" content="Evai Blog">
-<meta property="og:description" content="Evai Blog">
+<meta property="og:description" content="前言前几天在公司服务器查看日志的时候无意间发现项目配置的OOM Dump路径上生成了一个文件，发现就是最近生成的文件。好奇之下笔者将该文件拉到本地准备开始定位问题。 问题定位话不多说，直接利用MAT工具对该文件进行分析。  通过上图可以发现是sql返回的一个结果集占用了大量的内存，接近1.5G！但是这里还看不出来到底是哪块业务代码造成返回这么大的数据集。再看MAT的一个系统报告，它可以帮你预测出这">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2019/10/05/1qOiNoe42hMwVjv.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/05/uE275lNkWsh6JvR.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/05/hRUTdL6ewuB8t2Q.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/05/mg92ZSjqTi3CKMo.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/05/7YqQ1UHfraGWM4b.png">
+<meta property="og:updated_time" content="2019-10-05T09:40:01.911Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Evai Blog">
-<meta name="twitter:description" content="Evai Blog">
+<meta name="twitter:title" content="记一次生产环境OOM排查实践">
+<meta name="twitter:description" content="前言前几天在公司服务器查看日志的时候无意间发现项目配置的OOM Dump路径上生成了一个文件，发现就是最近生成的文件。好奇之下笔者将该文件拉到本地准备开始定位问题。 问题定位话不多说，直接利用MAT工具对该文件进行分析。  通过上图可以发现是sql返回的一个结果集占用了大量的内存，接近1.5G！但是这里还看不出来到底是哪块业务代码造成返回这么大的数据集。再看MAT的一个系统报告，它可以帮你预测出这">
+<meta name="twitter:image" content="https://i.loli.net/2019/10/05/1qOiNoe42hMwVjv.png">
 
 
 
@@ -118,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://evai.github.io/tags/redis/">
+  <link rel="canonical" href="https://evai.github.io/2019/07/22/java-oom-2019-07-22/">
 
 
 
 
 
-  <title>标签: redis | Evai Blog</title>
+  <title>记一次生产环境OOM排查实践 | Evai Blog</title>
   
 
 
@@ -153,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,52 +255,202 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>redis<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://evai.github.io/2019/07/22/java-oom-2019-07-22/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Evai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Evai Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/12/25/redis-cluster-config/" itemprop="url">
-              
-                <span itemprop="name">Redis集群配置及原理分析</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">记一次生产环境OOM排查实践</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-12-25T20:48:58+08:00" content="2017-12-25">
-          12-25
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-22T15:37:44+08:00">
+                2019-07-22
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/22/java-oom-2019-07-22/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/22/java-oom-2019-07-22/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/07/22/java-oom-2019-07-22/" class="leancloud_visitors" data-flag-title="记一次生产环境OOM排查实践">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>前几天在公司服务器查看日志的时候无意间发现项目配置的<code>OOM Dump</code>路径上生成了一个文件，发现就是最近生成的文件。好奇之下笔者将该文件拉到本地准备开始定位问题。</p>
+<h4 id="问题定位"><a href="#问题定位" class="headerlink" title="问题定位"></a>问题定位</h4><p>话不多说，直接利用<code>MAT</code>工具对该文件进行分析。</p>
+<p><img src="https://i.loli.net/2019/10/05/1qOiNoe42hMwVjv.png" alt></p>
+<p>通过上图可以发现是sql返回的一个结果集占用了大量的内存，接近1.5G！但是这里还看不出来到底是哪块业务代码造成返回这么大的数据集。再看<code>MAT</code>的一个系统报告，它可以帮你预测出这个内存快照可能出现问题并且同时给出线程快照。</p>
+<p><img src="https://i.loli.net/2019/10/05/uE275lNkWsh6JvR.png" alt></p>
+<p><img src="https://i.loli.net/2019/10/05/hRUTdL6ewuB8t2Q.png" alt></p>
+<p>接下来我们找出是哪个线程出的问题，如下图：</p>
+<p><img src="https://i.loli.net/2019/10/05/mg92ZSjqTi3CKMo.png" alt></p>
+<p><img src="https://i.loli.net/2019/10/05/7YqQ1UHfraGWM4b.png" alt></p>
+<p>既然找到造成OOM的线程了，那就直接查看堆栈，就可以定位到具体的业务代码了！笔者这边发现mybatis查询的时候根据对应的条件是否存在进行拼接查询，由于该接口少传了一个参数，导致数据库进行全表查询，然后……就造成眼前的悲剧了。</p>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>1、进行请求参数的必传校验。（该参数确实是必传的，但是业务端没有做校验）。</p>
+<p>2、查看代码发现这条sql查的是一个对象，也就是一个结果集，但是sql结尾中并没有加<code>limit 1</code>条件，所以为了防止匹配多条结果集，加上<code>limit 1</code>会更优。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>本次问题是经典的内存溢出问题，这类问题一般都是使用<code>MAT</code>工具进行问题定位并分析。首先找到占用内存大的那个对象，然后从线程堆栈中定位到具体的业务代码。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OOM/" rel="tag"># OOM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/01/java-volatile/" rel="next" title="Java中volatile关键字的理解">
+                <i class="fa fa-chevron-left"></i> Java中volatile关键字的理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -300,6 +458,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -320,8 +489,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -399,6 +577,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题定位"><span class="nav-number">2.</span> <span class="nav-text">问题定位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化"><span class="nav-number">3.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -539,6 +733,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -585,6 +783,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'Evai',
+            repo: 'evai.github.io',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'f6b5a1259d534e7f3b0b49e40e523d697fa003e7',
+            
+                client_id: '23852217546eed700ef6'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
